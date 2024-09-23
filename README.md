@@ -1,7 +1,5 @@
 # UMChess Site.
-This is a demo site for the University of Manitoba Chess Club. All info can be changed if needed. 
-
-The site uses a template and credit is given at the bottom of the ‘Readme.md’ file.
+This is a site for the University of Manitoba Chess Club (UMChess). It will hopefully be a place for people to see rankings and other infomation for the Club. 
 
 ## What the site is for.
 Within the site you will find a ‘index.html’ which is the home/landing page that most people will see. From that page you can find all of the other pages. The ‘about.html’ holds the information about who is running the chess club and what their roles/titles are. The other big page is called ‘rank.html’ which is the leaderboard page and this can hold all of the current winners of the tournaments as well as where everyone ranks based on previous tournaments or events. This can still be worked out how we are going to do it because I have not learned how to rate people in chess.
@@ -9,7 +7,7 @@ Within the site you will find a ‘index.html’ which is the home/landing page 
 ## The End.
 This site is not the final version and will be worked on more.
 
-### Giving Credit Where it is Due
+### Giving Credit.
 Future Imperfect by HTML5 UP
 html5up.net | @ajlkn
 Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)

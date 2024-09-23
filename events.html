@@ -11,6 +11,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
+	<script>
+		window.onload = function() {
+			var M = document.getElementById('WeeklyChessM');
+			var date = new Date();
+			var month = date.getMonth() + ""; // JavaScript months are 0-based
+			// The Image based on 0 for Jan and 11 for Dec
+			M.src = "images/" + month + ".jpeg";
+		};
+	</script>
 	<body class="single is-preload">
 
 		<!-- Wrapper -->
@@ -89,13 +98,24 @@
 										<h2>Weekly Chess Meeting</h2>
 									</div>
 								</header>
-								<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
-								<p>Come joins us at the GSA Lounge. This may change check instagram for more information.</p>
-								<p>Monday:	 	4:00-6:00</p>
-								<p>Thursday: 	4:00-6:00</p>
+								<span class="image featured"><img src="images/pic01.jpg" alt="" id="WeeklyChessM"/></span>
+								<p>Come joins us for some fun chess games.</p>
+								<p>Monday:	 	4:00-6:00 	GSA Lounge</p>
+								<p>Thursday: 	4:15-6:00 	EITC E2 310</p>
 							</article>
-
+<!--
 							<article class="post">
+								<header>
+									<div class="title">
+										<h2>Tourment</h2>
+									</div>
+								</header>
+								<span class="image featured"><img src="images/ChessBoard.jpeg" alt="" /></span>
+								<p>Our next Tourment is going to be Sept 32nd 2024</p>
+							</article>
+-->
+
+							<!--<article class="post"></article>
 								<header>
 									<div class="title">
 										<h2>Older News</h2>
@@ -104,7 +124,7 @@
 								<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
 								<p>The older News will go here.</p>
 								<p>This post will change later in the year.</p>
-							</article>
+							</article>-->
 					</div>
 
 				<!-- Footer -->
