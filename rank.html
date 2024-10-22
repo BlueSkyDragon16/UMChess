@@ -23,6 +23,50 @@
 	}
 	
 </style>
+<script>
+	// Function to fetch and parse the names from the text file
+	async function loadNames() {
+		try {
+			const response = await fetch('Winners_List/All_Players.txt');
+			const data = await response.text();
+			const names = data.split('\n').map(name => name.trim()).filter(name => name !== '');
+
+			// Populate the leaderboard
+			const leaderboardList = document.getElementById('leaderboard-list');
+			leaderboardList.innerHTML = ''; // Clear existing placeholders
+
+			names.forEach((name, index) => {
+				const listItem = document.createElement('li');
+				listItem.classList.add('leaderboard-item');
+				listItem.innerHTML = `<div>${index + 1}. ${name}</div><div>Elo: N/A</div>`;
+				leaderboardList.appendChild(listItem);
+			});
+		} catch (error) {
+			console.error('Error loading names:', error);
+		}
+		try {
+			const response = await fetch('Winners_List/Winners_of_last.txt');
+			const data = await response.text();
+			const names = data.split('\n').map(name => name.trim()).filter(name => name !== '');
+
+			// Populate the leaderboard
+			const leaderboardList = document.getElementById('leaderboard-Winners');
+			leaderboardList.innerHTML = ''; // Clear existing placeholders
+
+			names.forEach((name, index) => {
+				const listItem = document.createElement('li');
+				listItem.classList.add('leaderboard-item');
+				listItem.innerHTML = `<div>${index + 1}. ${name}</div><div>Elo: N/A</div>`;
+				leaderboardList.appendChild(listItem);
+			});
+		} catch (error) {
+			console.error('Error loading names:', error);
+		}
+	}
+
+	// Load names when the page is loaded
+	window.onload = loadNames;
+</script>
 <html>
 	<head>
 		<title>Leaderboard - UMChess</title>
@@ -113,106 +157,8 @@
 										<div class="leaderboard-header">
 										<h2 style="color: bisque;">Top Players</h2>
 										</div>
-										<ol>
-											<div class="leaderboard-item">
-												<li>Place Holder 1</li>
-												<div>Elo: N/A</div>
-											</div>
-
-											<div class="leaderboard-item">
-												<li>Place Holder 2</li>
-												<div>Elo: N/A</div>
-											</div>
-
-											<div class="leaderboard-item">
-												<li>Place Holder 3</li>
-												<div>Elo: N/A</div>
-											</div>
-
-											<div class="leaderboard-item">
-												<li>Place Holder 4</li>
-												<div>Elo: N/A</div>
-											</div>
-
-											<div class="leaderboard-item">
-												<li>Place Holder 5</li>
-												<div>Elo: N/A</div>
-											</div>
-
-											<div class="leaderboard-item">
-												<li>Place Holder 6</li>
-												<div>Elo: N/A</div>
-											</div>
-
-											<div class="leaderboard-item">
-												<li>Place Holder 7</li>
-												<div>Elo: N/A</div>
-											</div>
-
-											<div class="leaderboard-item">
-												<li>Place Holder 8</li>
-												<div>Elo: N/A</div>
-											</div>
-
-											<div class="leaderboard-item">
-												<li>Place Holder 9</li>
-												<div>Elo: N/A</div>
-											</div>
-
-											<div class="leaderboard-item">
-												<li>Place Holder 10</li>
-												<div>Elo: N/A</div>
-											</div>
-
-											<div class="leaderboard-item">
-												<li>Place Holder 11</li>
-												<div>Elo: N/A</div>
-											</div>
-
-											<div class="leaderboard-item">
-												<li>Place Holder 12</li>
-												<div>Elo: N/A</div>
-											</div>
-
-											<div class="leaderboard-item">
-												<li>Place Holder 13</li>
-												<div>Elo: N/A</div>
-											</div>
-
-											<div class="leaderboard-item">
-												<li>Place Holder 14</li>
-												<div>Elo: N/A</div>
-											</div>
-
-											<div class="leaderboard-item">
-												<li>Place Holder 15</li>
-												<div>Elo: N/A</div>
-											</div>
-
-											<div class="leaderboard-item">
-												<li>Place Holder 16</li>
-												<div>Elo: N/A</div>
-											</div>
-
-											<div class="leaderboard-item">
-												<li>Place Holder 17</li>
-												<div>Elo: N/A</div>
-											</div>
-
-											<div class="leaderboard-item">
-												<li>Place Holder 18</li>
-												<div>Elo: N/A</div>
-											</div>
-
-											<div class="leaderboard-item">
-												<li>Place Holder 19</li>
-												<div>Elo: N/A</div>
-											</div>
-
-											<div class="leaderboard-item">
-												<li>Place Holder 20</li>
-												<div>Elo: N/A</div>
-											</div>
+										<ol id="leaderboard-list">
+											
 										</ol>
 									</div>
 								</header>
@@ -223,19 +169,7 @@
 										<div class="leaderboard-header">
 											<h2 style="color: antiquewhite;">Winners of the last tournament</h2>
 										</div>
-										<ol>
-											<div class="leaderboard-item">
-												<li>Place Holder</li>
-												<div>Elo: 9999</div>
-											</div>
-											<div class="leaderboard-item">
-												<li>Place Holder</li>
-												<div>Elo: 9999</div>
-											</div>
-											<div class="leaderboard-item">
-												<li>Place Hilder</li>
-												<div>Elo: 9999</div>
-											</div>
+										<ol id="leaderboard-Winners">
 										</ol>
 									</div>
 								</header>
