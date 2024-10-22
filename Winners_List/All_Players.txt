@@ -2,7 +2,6 @@ Sylvester
 Gabriel
 Kallab
 Cedrick
-UMChessExec
 Bhavya
 Ziad
 Tal
