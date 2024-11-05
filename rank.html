@@ -29,34 +29,50 @@
 		try {
 			const response = await fetch('Winners_List/All_Players.txt');
 			const data = await response.text();
-			const names = data.split('\n').map(name => name.trim()).filter(name => name !== '');
+
+			// Split the data into lines and then separate names and Elo ratings
+			const players = data.split('\n').map(line => line.trim()).filter(line => line !== '');
+			const parsedData = players.map(line => {
+				const [name, elo] = line.split(':').map(item => item.trim());
+				return { name, elo: parseFloat(elo) };
+			});
+
+			// Sort players based on Elo rating in descending order
+			parsedData.sort((a, b) => b.elo - a.elo);
 
 			// Populate the leaderboard
 			const leaderboardList = document.getElementById('leaderboard-list');
 			leaderboardList.innerHTML = ''; // Clear existing placeholders
 
-			names.forEach((name, index) => {
+			parsedData.forEach((player, index) => {
 				const listItem = document.createElement('li');
 				listItem.classList.add('leaderboard-item');
-				listItem.innerHTML = `<div>${index + 1}. ${name}</div><div>Elo: N/A</div>`;
+				listItem.innerHTML = `<div>${index + 1}. ${player.name}</div><div>Elo: ${player.elo}</div>`;
 				leaderboardList.appendChild(listItem);
 			});
 		} catch (error) {
 			console.error('Error loading names:', error);
-		}
+		}	
+
 		try {
 			const response = await fetch('Winners_List/Winners_of_last.txt');
 			const data = await response.text();
-			const names = data.split('\n').map(name => name.trim()).filter(name => name !== '');
+
+			// Split the data into lines and then separate names and Elo ratings
+			const players = data.split('\n').map(line => line.trim()).filter(line => line !== '');
+			const parsedData = players.map(line => {
+				const [name, elo] = line.split(':').map(item => item.trim());
+				return { name, elo: parseFloat(elo) };
+			});
 
 			// Populate the leaderboard
 			const leaderboardList = document.getElementById('leaderboard-Winners');
 			leaderboardList.innerHTML = ''; // Clear existing placeholders
 
-			names.forEach((name, index) => {
+			parsedData.forEach((player, index) => {
 				const listItem = document.createElement('li');
 				listItem.classList.add('leaderboard-item');
-				listItem.innerHTML = `<div>${index + 1}. ${name}</div><div>Elo: N/A</div>`;
+				listItem.innerHTML = `<div>${index + 1}. ${player.name}</div><div>Elo: ${player.elo}</div>`;
 				leaderboardList.appendChild(listItem);
 			});
 		} catch (error) {
@@ -70,9 +86,9 @@
 <html>
 	<head>
 		<title>Leaderboard - UMChess</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+		<link rel="stylesheet" href="assets/css/main.css"/>
 	</head>
 	<body class="single is-preload">
 
@@ -155,10 +171,9 @@
 								<header>
 									<div class="leaderboard">
 										<div class="leaderboard-header">
-										<h2 style="color: bisque;">Top Players</h2>
+											<h2 style="color: antiquewhite;">Winners of the last tournament</h2>
 										</div>
-										<ol id="leaderboard-list">
-											
+										<ol id="leaderboard-Winners">
 										</ol>
 									</div>
 								</header>
@@ -167,9 +182,10 @@
 								<header>
 									<div class="leaderboard">
 										<div class="leaderboard-header">
-											<h2 style="color: antiquewhite;">Winners of the last tournament</h2>
+										<h2 style="color: bisque;">All Players</h2>
 										</div>
-										<ol id="leaderboard-Winners">
+										<ol id="leaderboard-list">
+											
 										</ol>
 									</div>
 								</header>

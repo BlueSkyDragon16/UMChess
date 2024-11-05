@@ -1,28 +1,29 @@
-Sylvester
-Gabriel
-Kallab
-Cedrick
-Bhavya
-Ziad
-Tal
-Yerik
-Arjun
-Duc
-Stanley
-Abdul
-Raymond Hefferman
-Dang Pham
-Riley
-Sachin
-Vladyslav
-Mathew
-Ali
-Hamed
-Best
-Dinh
-Ahaan
-Amirali
-Rayan
-Murtaza
-Minh Do
-Amir
+Sylvester	        :           2055
+Gabriel	            :           1821
+Kallab	            :           1800
+Cedrick	            :           1833
+Nathan	            :           1875
+Bhavya	            :           1631
+Ziad	            :           1637
+Tal	                :           1698
+Yerik	            :           1695
+Arjun	            :           1696
+Duc	                :           1643
+Stanley	            :           1572
+Abdul	            :           1658
+Raymond Hefferman	:           1574
+Dang Pham	        :           1600
+Riley	            :           1460
+sachin	            :           1512
+Vladyslav	        :           1390
+Matthew	            :           1286
+Ali	                :           1312
+Hamed	            :           1342
+Best	            :           1282
+Dinh	            :           1416
+Ahaan	            :           1122
+Amirali	            :           1137
+Rayan	            :           1055
+Murtaza	            :           1307
+Minh Do	            :           963
+Amir	            :           825

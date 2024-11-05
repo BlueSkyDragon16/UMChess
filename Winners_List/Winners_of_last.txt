@@ -1,3 +1,3 @@
-Sylvester
-Gabriel
-Kallab
+Sylvester	        :           2055
+Gabriel	            :           1821
+Kallab	            :           1800
