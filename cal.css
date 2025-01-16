@@ -1,0 +1,108 @@
+.cal-body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
+  
+  .calendar {
+    max-width: 90%; /* Adjusts the calendar's width relative to the screen */
+    margin: 1em auto; /* Centers the calendar */
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .calendar-header {
+    background-color: rgb(194, 194, 194);
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    font-size: 1.5em;
+    border-radius: 8px 8px 0 0;
+    text-align: center;
+  }
+  
+  .calendar-days,
+  .calendar-dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 equal columns for the days */
+    gap: 5px;
+    padding: 10px;
+  }
+  
+  .calendar-days div,
+  .calendar-dates div {
+    font-size: 1em;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+  }
+  
+  .calendar-days div {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .calendar-dates div {
+    background-color: #ececec;
+    transition: background-color 0.3s ease;
+  }
+  
+  .calendar-dates div:hover {
+    background-color: #e7dbbb;
+    cursor: pointer;
+  }
+  
+  .calendar-dates div.event-date {
+    background-color: #3be8ff;
+    color: #000;
+  }
+  
+  .calendar-dates div span.date {
+    font-size: 1.2em;
+    font-weight: bold;
+    display: block;
+  }
+  
+  .calendar-dates div span.event {
+    font-size: 0.9em;
+    color: #333;
+    display: block;
+    margin-top: 5px;
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 768px) {
+    .calendar {
+      font-size: 0.9em; /* Adjust text size for smaller screens */
+    }
+  
+    .calendar-days,
+    .calendar-dates {
+      gap: 3px; /* Reduce spacing between days */
+    }
+  
+    .calendar-days div,
+    .calendar-dates div {
+      padding: 5px; /* Reduce padding */
+    }
+  
+    .calendar-header {
+      font-size: 1.2em; /* Smaller header for smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .calendar {
+      font-size: 0.8em;
+    }
+  
+    .calendar-days div,
+    .calendar-dates div {
+      padding: 3px;
+    }
+  }
+  
