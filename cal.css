@@ -73,6 +73,11 @@
     display: block;
     margin-top: 5px;
   }
+
+  .calendar-dates div.exec-meeting-date {
+    background-color: #ffb92e; /* Light orange color */
+  }
+  
   
   /* Responsiveness */
   @media (max-width: 768px) {

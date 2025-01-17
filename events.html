@@ -135,54 +135,58 @@
 								};
 							
 								function createCalendar(year, month) {
-								  const months = [
-									'January', 'February', 'March', 'April', 'May', 'June',
-									'July', 'August', 'September', 'October', 'November', 'December'
-								  ];
-								  const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-								  const calendarsDiv = document.getElementById('calendars');
-							
-								  const firstDay = new Date(year, month, 1);
-								  const lastDay = new Date(year, month + 1, 0);
-								  const daysInMonth = lastDay.getDate();
-							
-								  const calendarDiv = document.createElement('div');
-								  calendarDiv.classList.add('calendar');
-							
-								  // Calendar header
-								  const header = document.createElement('div');
-								  header.classList.add('calendar-header');
-								  header.textContent = `${months[month]} ${year}`;
-								  calendarDiv.appendChild(header);
-							
-								  // Days of week
-								  const daysDiv = document.createElement('div');
-								  daysDiv.classList.add('calendar-days');
-								  daysOfWeek.forEach(day => {
-									const dayDiv = document.createElement('div');
-									dayDiv.textContent = day;
-									daysDiv.appendChild(dayDiv);
-								  });
-								  calendarDiv.appendChild(daysDiv);
-							
-								  // Dates
-								  const datesDiv = document.createElement('div');
-								  datesDiv.classList.add('calendar-dates');
-							
-								  // Empty divs for days before the first day of the month
-								  for (let i = 0; i < firstDay.getDay(); i++) {
-									const emptyDiv = document.createElement('div');
-									emptyDiv.classList.add('empty');
-									datesDiv.appendChild(emptyDiv);
-								  }
-							
-								  // Dates with events
-								  for (let day = 1; day <= daysInMonth; day++) {
-									const date = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-									const dateDiv = document.createElement('div');
+									const months = [
+										'January', 'February', 'March', 'April', 'May', 'June',
+										'July', 'August', 'September', 'October', 'November', 'December'
+									];
+									const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+									const calendarsDiv = document.getElementById('calendars');
 
-									if (events[date]) {
-										dateDiv.classList.add('event-date');
+									const firstDay = new Date(year, month, 1);
+									const lastDay = new Date(year, month + 1, 0);
+									const daysInMonth = lastDay.getDate();
+
+									const calendarDiv = document.createElement('div');
+									calendarDiv.classList.add('calendar');
+
+									// Calendar header
+									const header = document.createElement('div');
+									header.classList.add('calendar-header');
+									header.textContent = `${months[month]} ${year}`;
+									calendarDiv.appendChild(header);
+
+									// Days of week
+									const daysDiv = document.createElement('div');
+									daysDiv.classList.add('calendar-days');
+									daysOfWeek.forEach(day => {
+										const dayDiv = document.createElement('div');
+										dayDiv.textContent = day;
+										daysDiv.appendChild(dayDiv);
+									});
+									calendarDiv.appendChild(daysDiv);
+
+									// Dates
+									const datesDiv = document.createElement('div');
+									datesDiv.classList.add('calendar-dates');
+
+									// Empty divs for days before the first day of the month
+									for (let i = 0; i < firstDay.getDay(); i++) {
+										const emptyDiv = document.createElement('div');
+										emptyDiv.classList.add('empty');
+										datesDiv.appendChild(emptyDiv);
+									}
+
+									// Dates with events
+									for (let day = 1; day <= daysInMonth; day++) {
+										const date = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+										const dateDiv = document.createElement('div');
+
+										if (events[date]) {
+										if (events[date].description.includes('Exec Meeting')) {
+											dateDiv.classList.add('exec-meeting-date'); // Special class for Exec Meeting
+										} else {
+											dateDiv.classList.add('event-date');
+										}
 
 										const dateSpan = document.createElement('span');
 										dateSpan.classList.add('date');
@@ -193,37 +197,53 @@
 										eventSpan.textContent = events[date].description;
 
 										if (events[date].link) {
-										const link = document.createElement('a');
-										link.href = events[date].link;
-										link.target = '_blank'; // Opens the link in a new tab
-										link.classList.add('event-link');
+											const link = document.createElement('a');
+											link.href = events[date].link;
+											link.target = '_blank'; // Opens the link in a new tab
+											link.classList.add('event-link');
 
-										link.appendChild(dateSpan);
-										link.appendChild(eventSpan);
-										dateDiv.appendChild(link);
+											link.appendChild(dateSpan);
+											link.appendChild(eventSpan);
+											dateDiv.appendChild(link);
 										} else {
-										// Append the date and event description without a link
-										dateDiv.appendChild(dateSpan);
-										dateDiv.appendChild(eventSpan);
+											// Append the date and event description without a link
+											dateDiv.appendChild(dateSpan);
+											dateDiv.appendChild(eventSpan);
 										}
-									} else {
+										} else {
 										const dateSpan = document.createElement('span');
 										dateSpan.classList.add('date');
 										dateSpan.textContent = day;
 										dateDiv.appendChild(dateSpan);
+										}
+
+										datesDiv.appendChild(dateDiv);
 									}
 
-								datesDiv.appendChild(dateDiv);
+									calendarDiv.appendChild(datesDiv);
+									calendarsDiv.appendChild(calendarDiv);
 								}
 
-							
-								  calendarDiv.appendChild(datesDiv);
-								  calendarsDiv.appendChild(calendarDiv);
+								function displayCurrentAndNextMonth() {
+									const now = new Date();
+									const currentYear = now.getFullYear();
+									const currentMonth = now.getMonth();
+
+									// Clear any existing calendars
+									const calendarsDiv = document.getElementById('calendars');
+									calendarsDiv.innerHTML = '';
+
+									// Display the current month
+									createCalendar(currentYear, currentMonth);
+
+									// Display the next month
+									const nextMonth = (currentMonth + 1) % 12;
+									const nextYear = currentMonth === 11 ? currentYear + 1 : currentYear;
+									createCalendar(nextYear, nextMonth);
 								}
-							
-								// Display January and February 2025
-								createCalendar(2025, 0); // January
-								createCalendar(2025, 1); // February
+
+								// Call the function to display the calendars
+								displayCurrentAndNextMonth();
 							  </script>
 							  
 
