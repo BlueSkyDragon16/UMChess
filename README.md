@@ -1,4 +1,4 @@
-# UMChess Site.
+# UMChess.ca.
 This is a site for the University of Manitoba Chess Club (UMChess). It will hopefully be a place for people to see rankings and other infomation for the Club. 
 
 ## What the site is for.

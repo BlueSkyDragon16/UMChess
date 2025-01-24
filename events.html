@@ -102,7 +102,7 @@
 								</header>
 								<span class="image featured"><img src="images/pic01.jpg" alt="" id="WeeklyChessM"/></span>
 								<p>Come joins us for some fun chess games.</p>
-								<p>Monday:	 	4:00 - 6:00 	GSA Lounge</p>
+								<p>Monday:	&emsp;	4:00 - 6:00pm	&emsp;	GSA Lounge</p>
 								<p></p>
 							</article>
 
@@ -112,26 +112,28 @@
 										<h2>Calendar</h2>
 									</div>
 								</header>
+									<p>Click on tournament dates to sign up.</p>
+
 									<div class="cal-body">
 										<div id="calendars"></div>
 									</div>
 							  </article>
-							  
+
 							  <script>
 								const events = {
-								  '2025-01-13': { description: 'Kick-off Event 4:00 - 6:00pm', link: null },
-								  '2025-01-15': { description: 'Exec Meeting', link: null },
-								  '2025-01-20': { description: 'Meetup 4:00 - 6:00pm', link: null },
-								  '2025-01-23': { description: 'Exec Meeting', link: null  },
-								  '2025-01-27': { description: 'January Tournament 4:00 - 6:00pm', link: null},
-								  '2025-02-03': { description: 'Meetup 4:00 - 6:00pm', link: null },
-								  '2025-02-05': { description: 'Exec Meeting', link: null },
-								  '2025-02-06': { description: 'Beginner Event', link: null },
-								  '2025-02-17': { description: 'Reading Week', link: null },
-								  '2025-02-18': { description: 'Reading Week', link: null },
-								  '2025-02-19': { description: 'Reading Week', link: null },
-								  '2025-02-20': { description: 'Reading Week', link: null },
-								  '2025-02-21': { description: 'Reading Week', link: null }
+									'2025-01-13': { desc: 'Kick-off Event GSA', 		time: '4-6pm', 	link: null },
+									'2025-01-15': { desc: 'Exec Meeting', 				time: null, 	link: null },
+									'2025-01-20': { desc: 'Meetup EITC 130', 			time: '4-6pm', 	link: null },
+									'2025-01-23': { desc: 'Exec Meeting', 				time: null, 	link: null },
+									'2025-01-27': { desc: 'January Tournament GSA', 	time: '4-6pm', 	link: "https://forms.gle/5XQ7U72LjWYbd7wq6" },
+									'2025-02-03': { desc: 'Meetup GSA', 				time: '4-6pm', 	link: null },
+									'2025-02-05': { desc: 'Exec Meeting', 				time: null, 	link: null },
+									'2025-02-06': { desc: 'Beginner Event GSA', 		time: '4-6pm', 	link: null },
+									'2025-02-17': { desc: 'Reading Week', 				time: null, 	link: null },
+									'2025-02-18': { desc: 'Reading Week', 				time: null, 	link: null },
+									'2025-02-19': { desc: 'Reading Week', 				time: null, 	link: null },
+									'2025-02-20': { desc: 'Reading Week', 				time: null, 	link: null },
+									'2025-02-21': { desc: 'Reading Week', 				time: null, 	link: null },
 								};
 							
 								function createCalendar(year, month) {
@@ -182,7 +184,7 @@
 										const dateDiv = document.createElement('div');
 
 										if (events[date]) {
-										if (events[date].description.includes('Exec Meeting')) {
+										if (events[date].desc.includes('Exec Meeting')) {
 											dateDiv.classList.add('exec-meeting-date'); // Special class for Exec Meeting
 										} else {
 											dateDiv.classList.add('event-date');
@@ -194,7 +196,15 @@
 
 										const eventSpan = document.createElement('span');
 										eventSpan.classList.add('event');
-										eventSpan.textContent = events[date].description;
+										eventSpan.textContent = events[date].desc;
+
+										// Add time if it exists
+										if (events[date].time) {
+											const timeSpan = document.createElement('span');
+											timeSpan.classList.add('time');
+											timeSpan.textContent = ` (${events[date].time})`;
+											eventSpan.appendChild(timeSpan);
+										}
 
 										if (events[date].link) {
 											const link = document.createElement('a');
@@ -222,7 +232,8 @@
 
 									calendarDiv.appendChild(datesDiv);
 									calendarsDiv.appendChild(calendarDiv);
-								}
+									}
+
 
 								function displayCurrentAndNextMonth() {
 									const now = new Date();
