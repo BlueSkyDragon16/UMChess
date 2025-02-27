@@ -90,199 +90,209 @@
 				</section>
 
 				<!-- Main -->
-					<div id="main">
+			<div id="main">
 
-						<!-- Post -->
+				<!-- Post -->
 
-							<article class="post">
-								<header>
-									<div class="title">
-										<h2>Weekly Chess Meeting</h2>
-									</div>
-								</header>
-								<span class="image featured"><img src="images/pic01.jpg" alt="" id="WeeklyChessM"/></span>
-								<p>Come joins us for some fun chess games.</p>
-								<p>Monday:	&emsp;	4:00 - 6:00pm	&emsp;	GSA Lounge</p>
-								<p></p>
-							</article>
+					<!--
+					<article class="post">
+						<header>
+							<div class="title">
+								<h2>Weekly Chess Meeting</h2>
+							</div>
+						</header>
+						<span class="image featured"><img src="images/pic01.jpg" alt="" id="WeeklyChessM"/></span>
+						<p>Come joins us for some fun chess games.</p>
+						<p>Monday:	&emsp;	4:00 - 6:00pm	&emsp;	GSA Lounge</p>
+						<p></p>
+					</article>
+				-->
 
-							<article class="post">
-								<header>
-									<div class="title">
-										<h2>Calendar</h2>
-									</div>
-								</header>
-									<p>Click on tournament dates to sign up.</p>
+					<article class="post">
+						<header>
+							<div class="title">
+								<h2>Calendar</h2>
+							</div>
+						</header>
+							<p>Click on tournament dates to sign up.</p>
 
-									<div class="cal-body">
-										<div id="calendars"></div>
-									</div>
-							  </article>
+							<div class="cal-body">
+								<div id="calendars"></div>
+							</div>
+						</article>
 
-							  <script>
-								const events = {
-									'2025-01-13': { desc: 'Kick-off Event GSA', 		time: '4-6pm', 	link: null },
-									'2025-01-15': { desc: 'Exec Meeting', 				time: null, 	link: null },
-									'2025-01-20': { desc: 'Meetup EITC 130', 			time: '4-6pm', 	link: null },
-									'2025-01-23': { desc: 'Exec Meeting', 				time: null, 	link: null },
-									'2025-01-27': { desc: 'January Tournament GSA', 	time: '4-6pm', 	link: "https://forms.gle/5XQ7U72LjWYbd7wq6" },
-									'2025-02-03': { desc: 'Meetup GSA', 				time: '4-6pm', 	link: null },
-									'2025-02-05': { desc: 'Exec Meeting', 				time: null, 	link: null },
-									'2025-02-06': { desc: 'Beginner Event GSA', 		time: '4-6pm', 	link: null },
-									'2025-02-17': { desc: 'Reading Week', 				time: null, 	link: null },
-									'2025-02-18': { desc: 'Reading Week', 				time: null, 	link: null },
-									'2025-02-19': { desc: 'Reading Week', 				time: null, 	link: null },
-									'2025-02-20': { desc: 'Reading Week', 				time: null, 	link: null },
-									'2025-02-21': { desc: 'Reading Week', 				time: null, 	link: null },
-								};
-							
-								function createCalendar(year, month) {
-									const months = [
-										'January', 'February', 'March', 'April', 'May', 'June',
-										'July', 'August', 'September', 'October', 'November', 'December'
-									];
-									const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-									const calendarsDiv = document.getElementById('calendars');
+						<script>
+						const events = {
+							'2025-01-13': { desc: 'Kick-off Event GSA', 		time: '4-6pm', 	link: null },
+							'2025-01-15': { desc: 'Exec Meeting', 				time: null, 	link: null },
+							'2025-01-20': { desc: 'Meetup EITC 130', 			time: '4-6pm', 	link: null },
+							'2025-01-23': { desc: 'Exec Meeting', 				time: null, 	link: null },
+							'2025-01-27': { desc: 'January Tournament GSA', 	time: '4-6pm', 	link: "https://forms.gle/5XQ7U72LjWYbd7wq6" },
+							'2025-02-03': { desc: 'Meetup GSA', 				time: '4-6pm', 	link: null },
+							'2025-02-05': { desc: 'Exec Meeting', 				time: null, 	link: null },
+							'2025-02-13': { desc: 'Beginner Event GSA', 		time: '4-6pm', 	link: null },
+							'2025-02-17': { desc: 'Reading Week', 				time: null, 	link: null },
+							'2025-02-18': { desc: 'Reading Week', 				time: null, 	link: null },
+							'2025-02-19': { desc: 'Reading Week', 				time: null, 	link: null },
+							'2025-02-20': { desc: 'Reading Week', 				time: null, 	link: null },
+							'2025-02-21': { desc: 'Reading Week', 				time: null, 	link: null },
+							'2025-02-24': { desc: 'Meetup GSA', 				time: '4-6pm', 	link: null },
+							'2025-03-03': { desc: 'March Tournament GSA', 		time: '4-6pm', 	link: "https://forms.gle/LT2GcdoTThUnWvBG7" },
+							'2025-03-10': { desc: 'Meetup GSA', 				time: '4-6pm', 	link: null },
+							'2025-03-17': { desc: 'Meetup', 					time: '4-6pm', 	link: null },
+							'2025-03-24': { desc: 'Meetup',		 				time: '4-6pm', 	link: null },
+							'2025-03-31': { desc: 'Meetup',		 				time: '4-6pm', 	link: null },
+							'2025-04-07': { desc: 'Meetup',		 				time: '4-6pm', 	link: null },
 
-									const firstDay = new Date(year, month, 1);
-									const lastDay = new Date(year, month + 1, 0);
-									const daysInMonth = lastDay.getDate();
+						};
+					
+						function createCalendar(year, month) {
+							const months = [
+								'January', 'February', 'March', 'April', 'May', 'June',
+								'July', 'August', 'September', 'October', 'November', 'December'
+							];
+							const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+							const calendarsDiv = document.getElementById('calendars');
 
-									const calendarDiv = document.createElement('div');
-									calendarDiv.classList.add('calendar');
+							const firstDay = new Date(year, month, 1);
+							const lastDay = new Date(year, month + 1, 0);
+							const daysInMonth = lastDay.getDate();
 
-									// Calendar header
-									const header = document.createElement('div');
-									header.classList.add('calendar-header');
-									header.textContent = `${months[month]} ${year}`;
-									calendarDiv.appendChild(header);
+							const calendarDiv = document.createElement('div');
+							calendarDiv.classList.add('calendar');
 
-									// Days of week
-									const daysDiv = document.createElement('div');
-									daysDiv.classList.add('calendar-days');
-									daysOfWeek.forEach(day => {
-										const dayDiv = document.createElement('div');
-										dayDiv.textContent = day;
-										daysDiv.appendChild(dayDiv);
-									});
-									calendarDiv.appendChild(daysDiv);
+							// Calendar header
+							const header = document.createElement('div');
+							header.classList.add('calendar-header');
+							header.textContent = `${months[month]} ${year}`;
+							calendarDiv.appendChild(header);
 
-									// Dates
-									const datesDiv = document.createElement('div');
-									datesDiv.classList.add('calendar-dates');
+							// Days of week
+							const daysDiv = document.createElement('div');
+							daysDiv.classList.add('calendar-days');
+							daysOfWeek.forEach(day => {
+								const dayDiv = document.createElement('div');
+								dayDiv.textContent = day;
+								daysDiv.appendChild(dayDiv);
+							});
+							calendarDiv.appendChild(daysDiv);
 
-									// Empty divs for days before the first day of the month
-									for (let i = 0; i < firstDay.getDay(); i++) {
-										const emptyDiv = document.createElement('div');
-										emptyDiv.classList.add('empty');
-										datesDiv.appendChild(emptyDiv);
-									}
+							// Dates
+							const datesDiv = document.createElement('div');
+							datesDiv.classList.add('calendar-dates');
 
-									// Dates with events
-									for (let day = 1; day <= daysInMonth; day++) {
-										const date = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-										const dateDiv = document.createElement('div');
+							// Empty divs for days before the first day of the month
+							for (let i = 0; i < firstDay.getDay(); i++) {
+								const emptyDiv = document.createElement('div');
+								emptyDiv.classList.add('empty');
+								datesDiv.appendChild(emptyDiv);
+							}
 
-										if (events[date]) {
-										if (events[date].desc.includes('Exec Meeting')) {
-											dateDiv.classList.add('exec-meeting-date'); // Special class for Exec Meeting
-										} else {
-											dateDiv.classList.add('event-date');
-										}
+							// Dates with events
+							for (let day = 1; day <= daysInMonth; day++) {
+								const date = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+								const dateDiv = document.createElement('div');
 
-										const dateSpan = document.createElement('span');
-										dateSpan.classList.add('date');
-										dateSpan.textContent = day;
-
-										const eventSpan = document.createElement('span');
-										eventSpan.classList.add('event');
-										eventSpan.textContent = events[date].desc;
-
-										// Add time if it exists
-										if (events[date].time) {
-											const timeSpan = document.createElement('span');
-											timeSpan.classList.add('time');
-											timeSpan.textContent = ` (${events[date].time})`;
-											eventSpan.appendChild(timeSpan);
-										}
-
-										if (events[date].link) {
-											const link = document.createElement('a');
-											link.href = events[date].link;
-											link.target = '_blank'; // Opens the link in a new tab
-											link.classList.add('event-link');
-
-											link.appendChild(dateSpan);
-											link.appendChild(eventSpan);
-											dateDiv.appendChild(link);
-										} else {
-											// Append the date and event description without a link
-											dateDiv.appendChild(dateSpan);
-											dateDiv.appendChild(eventSpan);
-										}
-										} else {
-										const dateSpan = document.createElement('span');
-										dateSpan.classList.add('date');
-										dateSpan.textContent = day;
-										dateDiv.appendChild(dateSpan);
-										}
-
-										datesDiv.appendChild(dateDiv);
-									}
-
-									calendarDiv.appendChild(datesDiv);
-									calendarsDiv.appendChild(calendarDiv);
-									}
-
-
-								function displayCurrentAndNextMonth() {
-									const now = new Date();
-									const currentYear = now.getFullYear();
-									const currentMonth = now.getMonth();
-
-									// Clear any existing calendars
-									const calendarsDiv = document.getElementById('calendars');
-									calendarsDiv.innerHTML = '';
-
-									// Display the current month
-									createCalendar(currentYear, currentMonth);
-
-									// Display the next month
-									const nextMonth = (currentMonth + 1) % 12;
-									const nextYear = currentMonth === 11 ? currentYear + 1 : currentYear;
-									createCalendar(nextYear, nextMonth);
+								if (events[date]) {
+								if (events[date].desc.includes('Exec Meeting')) {
+									dateDiv.classList.add('exec-meeting-date'); // Special class for Exec Meeting
+								} else {
+									dateDiv.classList.add('event-date');
 								}
 
-								// Call the function to display the calendars
-								displayCurrentAndNextMonth();
-							  </script>
-							  
+								const dateSpan = document.createElement('span');
+								dateSpan.classList.add('date');
+								dateSpan.textContent = day;
+
+								const eventSpan = document.createElement('span');
+								eventSpan.classList.add('event');
+								eventSpan.textContent = events[date].desc;
+
+								// Add time if it exists
+								if (events[date].time) {
+									const timeSpan = document.createElement('span');
+									timeSpan.classList.add('time');
+									timeSpan.textContent = ` (${events[date].time})`;
+									eventSpan.appendChild(timeSpan);
+								}
+
+								if (events[date].link) {
+									const link = document.createElement('a');
+									link.href = events[date].link;
+									link.target = '_blank'; // Opens the link in a new tab
+									link.classList.add('event-link');
+
+									link.appendChild(dateSpan);
+									link.appendChild(eventSpan);
+									dateDiv.appendChild(link);
+								} else {
+									// Append the date and event description without a link
+									dateDiv.appendChild(dateSpan);
+									dateDiv.appendChild(eventSpan);
+								}
+								} else {
+								const dateSpan = document.createElement('span');
+								dateSpan.classList.add('date');
+								dateSpan.textContent = day;
+								dateDiv.appendChild(dateSpan);
+								}
+
+								datesDiv.appendChild(dateDiv);
+							}
+
+							calendarDiv.appendChild(datesDiv);
+							calendarsDiv.appendChild(calendarDiv);
+							}
 
 
-							<!--<article class="post"></article>
-								<header>
-									<div class="title">
-										<h2>Older News</h2>
-									</div>
-								</header>
-								<span class="image featured"><img src="images/pic01.jpg" alt=""/></span>
-								<p>The older News will go here.</p>
-								<p>This post will change later in the year.</p>
-							</article>-->
-					</div>
+						function displayCurrentAndNextMonth() {
+							const now = new Date();
+							const currentYear = now.getFullYear();
+							const currentMonth = now.getMonth();
 
-				<!-- Footer -->
-				<section id="footer">
-					<ul class="icons">
-						<li><a href="https://t.me/+UcCmmyKqGkc1NDYx" class="icon brands fa-telegram"><span class="label">Telegram</span></a></li>
-						<li><a href="https://www.instagram.com/uofmchessclub?igsh=MXZoNXFwdTM2cXQwaw%3D%3D&utm_source=qr" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="https://www.chess.com/club/uofm-chess-club/join" class="icon solid fa-chess"><span class="label">Chess.com Club link</span></a></li>
-						<li><a href="https://forms.gle/Hjwvg6tAuyCGA4it5" class="icon solid fa-envelope"><span class="label">Sign up</span></a></li>
-					</ul>
-					<p class="copyright">&copy;Design From: <a href="http://html5up.net">HTML5 UP</a>. Edited By: <a href="https://www.zephsuderman.ca">Zeph Suderman</a></a>.</p>
-				</section>
+							// Clear any existing calendars
+							const calendarsDiv = document.getElementById('calendars');
+							calendarsDiv.innerHTML = '';
 
+							// Display the current month
+							createCalendar(currentYear, currentMonth);
+
+							// Display the next month
+							const nextMonth = (currentMonth + 1) % 12;
+							const nextYear = currentMonth === 11 ? currentYear + 1 : currentYear;
+							createCalendar(nextYear, nextMonth);
+						}
+
+						// Call the function to display the calendars
+						displayCurrentAndNextMonth();
+						</script>
+						
+
+
+					<!--<article class="post"></article>
+						<header>
+							<div class="title">
+								<h2>Older News</h2>
+							</div>
+						</header>
+						<span class="image featured"><img src="images/pic01.jpg" alt=""/></span>
+						<p>The older News will go here.</p>
+						<p>This post will change later in the year.</p>
+					</article>-->
 			</div>
+
+			<!-- Footer -->
+			<section id="footer">
+				<ul class="icons">
+					<li><a href="https://t.me/+UcCmmyKqGkc1NDYx" class="icon brands fa-telegram"><span class="label">Telegram</span></a></li>
+					<li><a href="https://www.instagram.com/uofmchessclub?igsh=MXZoNXFwdTM2cXQwaw%3D%3D&utm_source=qr" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="https://www.chess.com/club/uofm-chess-club/join" class="icon solid fa-chess"><span class="label">Chess.com Club link</span></a></li>
+					<li><a href="https://forms.gle/Hjwvg6tAuyCGA4it5" class="icon solid fa-envelope"><span class="label">Sign up</span></a></li>
+				</ul>
+				<p class="copyright">&copy;Design From: <a href="http://html5up.net">HTML5 UP</a>. Edited By: <a href="https://www.zephsuderman.ca">Zeph Suderman</a></a>.</p>
+			</section>
+
+		</div>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
